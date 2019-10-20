@@ -1,0 +1,61 @@
+<div class="container-fluid">
+   
+
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6 m-2 border border-primary">
+             <h1>create new post</h1>
+            <form action="/posts2/create2" method="post" enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <label for="title">title</label>
+                    <input type="text" class="form-control" name="title" id="title" placeholder="enter the title">
+                </div>
+
+                <div class="form-group">
+                    <label for="status">status</label>
+                    <select name="status" id="status" class="form-control">
+                        <option value="public">Public</option>
+                        <option value="private">Private</option>
+                        <option value="draft">Draft</option>
+
+                    </select>
+                </div>
+
+                 <div class="form-group">
+                    <label for="category">category</label>
+                    <select name="category" id="category" class="form-control">
+                        {{#each categories}}
+                        <option value="{{_id}}">{{title}}</option>
+                        {{/each}}
+                    </select>
+                </div> 
+                    <input type="hidden" value="{{user._id}}" class="form-control" name="user" id="user" >
+                <div class="form-group">
+                    <label for="file">file</label>
+                    <input type="file" class="form-control" name="uploadedFile" id="file" placeholder="upload_image">
+                </div>
+                <div class="form-group">
+                    <label for="file">price</label>
+                    <input type="number" class="form-control" name="price" id="price" placeholder="price">
+                </div>       
+                <div class="form-check ml-3">
+                    <label for="allowComments">
+                        <input type="checkbox" class="form-check-input" id="allowComments" name="allowComments">
+                         Allow comments
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">content</label>
+                    <textarea name="description" id="description" class="form-control" placeholder="enter your content" cols="15" rows="5"></textarea>
+                </div>
+
+                <button class="btn btn-outline-success btn-lg" type="submit">create post</button>
+
+
+            </form>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+</div>

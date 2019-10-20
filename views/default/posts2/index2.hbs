@@ -1,0 +1,66 @@
+<div class="continer">
+    <div class="row">
+    <div class="col-lg-3"></div>
+     <div class="col-lg-6 ml-5">   
+    <div class="alert alert-secondty text-center">
+        <script>
+            if('geolocation' in navigator){
+                console.log('geolocation available');
+                navigator.geolocation.getCurrentPosition(position => {
+                   const lat = 8.8556838;
+
+                   if(position.coords.latitude == lat){
+                       console.log('you are good to go');
+                   }else{
+                       console.log('you are bad to go');
+                   }
+
+                   console.log(position.coords.latitude);
+                   console.log(position.coords.longitude);
+                });
+
+            }else{
+                console.log('geolocation not available');
+            }
+        </script>
+        <h1>ALL PRODUCTS</h1>
+    </div>
+
+    <table class="table table-bordered">
+        <thead class="bg-dark">
+           <tr class="text-white">
+               {{!-- <th>Id</th> --}}
+               <th>title</th>
+               <th>description</th>
+               <th>status</th>
+               <th>image</th>
+               <th>comments Allowed</th>
+               <th>category</th>
+               <th>Actions</th>
+           </tr>
+        </thead>
+        <tbody class="text-center ">
+            {{#each posts2}}
+            <tr>
+                {{!-- <td>{{_id}}</td> --}}
+                <td>{{title}}</td>
+                <td>{{description}}</td>
+                <td>{{status}}</td>
+                <td>{{file}}</td>
+                <td>{{allowComments}}</td>
+                <td>{{category.title}}</td>
+                <td class="d-flex">
+                    <a href="/posts2/edit2/{{_id}}" class="btn btn-sm btn-warning mr-2">Edit post</a>
+
+                     <form action="/posts2/delete2/{{id}}?newMethod=DELETE" method="post">
+                        <button class="btn btn-sm btn-danger" type="submit">Delete Post</button>
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>  
+<div class="col-lg-3"></div>  
+</div>
+</div>

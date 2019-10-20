@@ -1,0 +1,389 @@
+
+<body>
+	
+<div class="welcome">
+	<div class="container">
+		<div class="col-lg-12">
+			<h1>Company Product</h1>
+			{{#each posts}}
+			<div class="col-lg-4 border-info mb-3">
+				<img src="{{file}}" class="img-fluid img-responsive m-1 w-4180px h-2787"  alt="">
+				<h2>{{title}}</h2>price <span class="badge">NGN{{price}}</span>
+				<p>{{description}} was posted on
+				the {{creationDate}}
+				</p>
+				<a href="/add-to-cart/{{_id}}">
+					<button type="button" class="btn btn-sm btn-outline-secondary">Add to cart</button>
+				</a>
+			</div>
+			{{/each}}
+		</div>
+	</div>
+</div>
+
+
+
+<div class="welcome">
+	<div class="container">
+		<div class="col-lg-12">
+			<h1>Users Product</h1>
+			{{#each posts2}}
+			<div class="col-lg-4 border-info mb-3">
+				<img src="{{file}}" class="img-fluid img-responsive m-1 w-4180px h-2787"  alt="">
+				<h2>{{title}}</h2>price <span class="badge">NGN{{price}}</span>
+				<p>{{description}} was posted on
+				the {{creationDate}}
+				</p>
+				<a href="/add-to-cart/{{_id}}">
+					<button type="button" class="btn btn-sm btn-outline-secondary">Add to cart</button>
+				</a>
+			</div>
+			{{/each}}
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<!-- banner -->
+	{{!-- <div class="banner">
+		<div class="container">
+			<div class="w3_agileits_banner_main_grid">
+				<div class="w3_agile_logo">
+					<h1><a href="/"><span>A</span>pro-Tech<i></i></a></h1>
+				</div>
+				<div class="agile_social_icons_banner">
+					<ul class="agileits_social_list">
+						<li><a href="#" class="w3_agile_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+						<li><a href="#" class="agile_twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						<li><a href="#" class="w3_agile_dribble"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+						<li><a href="#" class="w3_agile_vimeo"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+					</ul>
+				</div>
+				<div class="agileits_w3layouts_menu">
+					<div class="shy-menu">
+						<a class="shy-menu-hamburger">
+							<span class="layer top"></span>
+							<span class="layer mid"></span>
+							<span class="layer btm"></span>
+						</a>
+						<div class="shy-menu-panel">
+							<nav class="menu menu--horatio link-effect-8" id="link-effect-8">
+								<ul class="w3layouts_menu__list">
+									<li class="active"><a href="/">Home</a></li>
+									<li><a href="/about">About Us</a></li> 
+									<li><a href="/admin">Admin</a></li>
+									<li><a href="/services">Services</a></li>
+									<li><a href="/register">Register</a></li>
+									<li><a href="/login">Login</a></li>
+									<li><a href="/contact">Contact Us</a></li>
+									
+								</ul>
+							</nav>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			 --}}
+
+
+
+
+{{!-- 
+<div class="w3_banner_info">
+				<div class="w3_banner_info_grid">
+					<h3 class="test">I'm Joining Apro-Tech To Gather Strength To Change The Agricultural system</h3>
+					<p>Dellers Of All Type Of Farm Product, Agro-chemicals And Storage Facilities.</p>
+					<ul>
+						<li><a href="/contact" class="w3l_contact">Contact Us</a></li>
+						<li><a href="#" class="w3ls_more" data-toggle="modal" data-target="#myModal">Read More</a></li>
+					</ul>
+				</div>
+			</div> --}}
+			{{!-- <div class="thim-click-to-bottom">
+				<a href="#welcome_bottom" class="scroll">
+					<i class="fa  fa-chevron-down"></i>
+				</a>
+			</div> --}}
+		</div>
+	</div>
+
+<!-- bootstrap-pop-up -->
+	<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					Apro-Tech
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+				</div>
+				<section>
+					<div class="modal-body">
+						<img src="images/4.jpg" alt=" " class="img-responsive" />
+						<p>welcome to Apro-Tech, we are more of online store that
+							sales agro-products, farm product, and connect store
+							owners with farmer who are in need of storage facilities.
+							<i>" come partner with us and you will never regret.</i></p>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+<!-- //bootstrap-pop-up -->
+<!-- banner-bottom -->
+	<div class="banner-bottom">
+		<div class="col-md-4 agileits_banner_bottom_left">
+			<div class="agileinfo_banner_bottom_pos">
+				<div class="w3_agileits_banner_bottom_pos_grid">
+					<div class="col-xs-4 wthree_banner_bottom_grid_left">
+						<div class="agile_banner_bottom_grid_left_grid hvr-radial-out">
+							<i class="fa fa-pagelines" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="col-xs-8 wthree_banner_bottom_grid_right">	
+						<h4>Free Consultation</h4>
+						<p>we give free Consultation for Customers on Apro-Tech.</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 agileits_banner_bottom_left1">
+			<div class="agileinfo_banner_bottom_pos">
+				<div class="w3_agileits_banner_bottom_pos_grid">
+					<div class="col-xs-4 wthree_banner_bottom_grid_left">
+						<div class="agile_banner_bottom_grid_left_grid hvr-radial-out">
+							<i class="fa fa-certificate" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="col-xs-8 wthree_banner_bottom_grid_right">	
+						<h4>Certified Products</h4>
+						<p>we ensure all our product a Certified.</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 agileits_banner_bottom_left2">
+			<div class="agileinfo_banner_bottom_pos">
+				<div class="w3_agileits_banner_bottom_pos_grid">
+					<div class="col-xs-4 wthree_banner_bottom_grid_left">
+						<div class="agile_banner_bottom_grid_left_grid hvr-radial-out">
+							<i class="fa fa-yelp" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="col-xs-8 wthree_banner_bottom_grid_right">	
+						<h4>Free Helpline</h4>
+						<p>We Also Have Our Free Helpline Available For You At Any Time.</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+<!-- //banner-bottom -->
+<!-- welcome -->
+	<div class="welcome">
+		<div class="container">
+			<h3 class="agileits_w3layouts_head">Welcome to our <span>Plantation</span></h3>
+			<div class="w3_agile_image">
+				<img src="images/1.png" alt=" " class="img-responsive" />
+			</div>
+			<p class="agile_para">A display of all our plantation.</p>
+		</div>
+		<div class="mis-stage w3_agileits_welcome_grids"> 
+			<!-- The element to select and apply miSlider to - the class is optional -->
+			<ol class="mis-slider">
+				<li class="mis-slide"> 
+					<figure> 
+						<img src="images/2.png" alt=" " class="img-responsive" />
+						<figcaption>Strawberry</figcaption>
+					</figure>
+				</li>
+				<li class="mis-slide"> 
+					<figure> 
+						<img src="images/3.png" alt=" " class="img-responsive" />
+						<figcaption>Orange</figcaption>
+					</figure>
+				</li>
+				<li class="mis-slide"> 
+					<figure> 
+						<img src="images/4.png" alt=" " class="img-responsive" />
+						<figcaption>Pomegranates</figcaption>
+					</figure>
+				</li>
+				<li class="mis-slide"> 
+					<figure> 
+						<img src="images/5.png" alt=" " class="img-responsive" />
+						<figcaption>Lemon</figcaption>
+					</figure>
+				</li>
+				<li class="mis-slide"> 
+					<figure> 
+						<img src="images/6.png" alt=" " class="img-responsive" />
+						<figcaption>Kiwi Fruits</figcaption>
+					</figure>
+				</li>
+				<li class="mis-slide"> 
+					<figure> 
+						<img src="images/7.png" alt=" " class="img-responsive" />
+						<figcaption>Apples</figcaption>
+					</figure>
+				</li>
+			</ol>
+		</div>
+	</div>
+<!-- //welcome -->
+<!-- welcome-bottom -->
+	<div id="welcome_bottom" class="welcome-bottom">
+		<div class="col-md-6 wthree_welcome_bottom_left">
+			<h3>we work hard and make our country <span>greenery</span></h3>
+			<p>statistics of product sold within the year.</p>
+			<div class="col-md-6 wthree_welcome_bottom_left_grid">
+				<div class="w3l_social_icon_gridl">
+					<img src="images/8.png" alt=" " class="img-responsive" />
+				</div>
+				<div class="w3l_social_icon_gridr">
+					<h4 class="counter">23,536</h4>
+				</div>
+				<div class="clearfix"> </div>
+				<div class="w3l_social_icon_grid_pos">
+					<label>-</label>
+				</div>
+			</div>
+			<div class="col-md-6 wthree_welcome_bottom_left_grid">
+				<div class="w3l_social_icon_gridl">
+					<img src="images/9.png" alt=" " class="img-responsive" />
+				</div>
+				<div class="w3l_social_icon_gridr">
+					<h4 class="counter">53,234</h4>
+				</div>
+				<div class="clearfix"> </div>
+				<div class="w3l_social_icon_grid_pos">
+					<label>-</label>
+				</div>
+			</div>
+			<div class="col-md-6 wthree_welcome_bottom_left_grid">
+				<div class="w3l_social_icon_gridl">
+					<img src="images/10.png" alt=" " class="img-responsive" />
+				</div>
+				<div class="w3l_social_icon_gridr">
+					<h4 class="counter">43,568</h4>
+				</div>
+				<div class="clearfix"> </div>
+				<div class="w3l_social_icon_grid_pos">
+					<label>-</label>
+				</div>
+			</div>
+			<div class="col-md-6 wthree_welcome_bottom_left_grid">
+				<div class="w3l_social_icon_gridl">
+					<img src="images/11.png" alt=" " class="img-responsive" />
+				</div>
+				<div class="w3l_social_icon_gridr">
+					<h4 class="counter">12,432</h4>
+				</div>
+				<div class="clearfix"> </div>
+				<div class="w3l_social_icon_grid_pos">
+					<label>-</label>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+		<div class="col-md-6 wthree_welcome_bottom_right">
+			<div class="agileinfo_grid">
+				<figure class="agileits_effect_moses">
+					<img src="images/4.jpg" alt=" " class="img-responsive" />
+					<figcaption>
+						<h4>Apro-Tech <span>For Future Growth</span></h4>
+						<p>Always at your service giving you the best agricultural product.</p>
+					</figcaption>			
+				</figure>
+			</div>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+<!-- //welcome-bottom -->
+<!-- news -->
+	<div class="welcome">
+		<div class="container">
+			<h3 class="agileits_w3layouts_head">Latest <span>News</span> from Apro-Tech</h3>
+			<div class="w3_agile_image">
+				<img src="images/1.png" alt=" " class="img-responsive">
+			</div>
+			<p class="agile_para">Arrival Of New Farm Product And Agro-chemical, Place Your Order Right Now.</p>
+			<div class="w3ls_news_grids">
+				<div class="col-md-4 w3ls_news_grid">
+					<div class="w3layouts_news_grid">
+						<img src="images/32.jpg" alt=" " class="img-responsive" />
+						<div class="w3layouts_news_grid_pos">
+							<div class="wthree_text"><h3>plantation</h3></div>
+						</div>
+					</div>
+					<div class="agileits_w3layouts_news_grid">
+						<ul>
+							<li><i class="fa fa-calendar" aria-hidden="true"></i>25 March 2017</li>
+							<li><i class="fa fa-user" aria-hidden="true"></i><a href="#">Admin</a></li>
+						</ul>
+						<h4><a href="#" data-toggle="modal" data-target="#myModal">Design & Planting</a></h4>
+						<p>At Apro-Tech All Our Design Are Wanderful And Our Planting Are Perfect.</p>
+					</div>
+				</div>
+				<div class="col-md-4 w3ls_news_grid">
+					<div class="w3layouts_news_grid">
+						<img src="images/62.jpg" alt=" " class="img-responsive" />
+						<div class="w3layouts_news_grid_pos">
+							<div class="wthree_text"><h3>plantation</h3></div>
+						</div>
+					</div>
+					<div class="agileits_w3layouts_news_grid">
+						<ul>
+							<li><i class="fa fa-calendar" aria-hidden="true"></i>28 March 2017</li>
+							<li><i class="fa fa-user" aria-hidden="true"></i><a href="#">Admin</a></li>
+						</ul>
+						<h4><a href="#" data-toggle="modal" data-target="#myModal">Quality & Reliability</a></h4>
+						<p>AT Apro-Tech Our Quality Is Outstanding And You Can Trust Us When It Comes To Reliability.</p>
+					</div>
+				</div>
+				<div class="col-md-4 w3ls_news_grid">
+					<div class="w3layouts_news_grid">
+						<img src="images/52.jpg" alt=" " class="img-responsive" />
+						<div class="w3layouts_news_grid_pos">
+							<div class="wthree_text"><h3>plantation</h3></div>
+						</div>
+					</div>
+					<div class="agileits_w3layouts_news_grid">
+						<ul>
+							<li><i class="fa fa-calendar" aria-hidden="true"></i>30 March 2017</li>
+							<li><i class="fa fa-user" aria-hidden="true"></i><a href="#">Admin</a></li>
+						</ul>
+						<h4><a href="#" data-toggle="modal" data-target="#myModal">Satisfied Customers</a></h4>
+						<p>Our Customers Our Priority, Making Our Customers Satisfied Have Always Been Our Responsibility.</p>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+<!-- //news -->
+<!-- newsletter -->
+	<div class="newsletter">
+		<div class="container">
+			<h3 class="agileits_w3layouts_head agileinfo_head"><span>Subscribe</span> to our newsletter</h3>
+			<div class="w3_agile_image">
+				<img src="images/12.png" alt=" " class="img-responsive">
+			</div>
+			<p class="agile_para agileits_para">We Keep You Updated On New Products And Our Policies.</p>
+			<div class="w3ls_news_grids w3ls_newsletter_grids">
+				<form action="#" method="post">
+					<input name="Your Name" placeholder="Your Name" type="text" required="">
+					<input name="Your Email" placeholder="Your Email" type="email" required="">
+					<input type="submit" value="Subscribe">
+				</form>
+			</div>
+		</div>
+	</div>
+<!-- //newsletter -->

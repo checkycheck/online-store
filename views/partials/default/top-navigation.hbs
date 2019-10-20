@@ -1,0 +1,46 @@
+<div class="banner1">
+		<div class="container">
+			<div class="w3_agileits_banner_main_grid">
+				<div class="w3_agile_logo">
+					<h1><a href="/"><span>A</span>pro-Tech<i></i></a></h1>
+				</div>
+				<br><br><br><br>
+				{{!-- <div class="agileits_w3layouts_menu">
+					<div class="shy-menu">
+						 <a class="shy-menu-hamburger">
+							<span class="layer top"></span>
+							<span class="layer mid"></span>
+							<span class="layer btm"></span>
+
+
+						</a>  --}}
+						<div class="shy-menu-panel">
+							<nav class="menu menu--horatio link-effect-8" id="link-effect-8">
+								<ul class="w3layouts_menu__list">
+									<li><a href="/">Home</a></li>
+									{{#if user}}
+									<li>
+                                  		<a href="/shop/shopping-cart">
+                        					<i class="fa fa-shopping-cart" aria-hidden="true"></i>shopping cart 
+                        					<span class="badge">{{session.cart.totalQty}}</span>
+                    					</a>
+                    				</li>
+									<li><a href="/dashboard">Dashboard</a></li> 
+									<li><a href="/logout">Logout</a></li>
+									{{else}}
+									<li><a href="/register">Register</a></li> 
+									<li><a href="/login">Login</a></li> 
+									<li><a href="/about">About Us</a></li> 
+									<li><a href="/services">Services</a></li>
+									{{/if}}
+									<li><a href="/contact">Contact Us</a></li>
+								</ul>
+							</nav>
+						</div>
+						{{!-- <div class="clearfix"> </div> --}}
+					</div>
+				{{!-- </div> --}}
+				{{!-- <div class="clearfix"> </div> --}}
+			</div>
+		</div>
+	</div>

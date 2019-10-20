@@ -1,0 +1,111 @@
+
+<!-- bootstrap-pop-up -->
+	<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					Apro-Tech
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+				</div>
+				<section>
+					<div class="modal-body">
+						<img src="images/4.jpg" alt=" " class="img-responsive" />
+						<p>Ut enim ad minima veniam, quis nostrum 
+							exercitationem ullam corporis suscipit laboriosam, 
+							nisi ut aliquid ex ea commodi consequatur? Quis autem 
+							vel eum iure reprehenderit qui in ea voluptate velit 
+							esse quam nihil molestiae consequatur, vel illum qui 
+							dolorem eum fugiat quo voluptas nulla pariatur.
+							<i>" Quis autem vel eum iure reprehenderit qui in ea voluptate velit 
+								esse quam nihil molestiae consequatur.</i></p>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+<!-- //bootstrap-pop-up -->
+<!-- breadcrumbs -->
+	<div class="breadcrumbs">
+		<div class="container">
+			<div class="w3layouts_breadcrumbs_left">
+				<ul>
+					<li><i class="fa fa-home" aria-hidden="true"></i><a href="/">Home</a><span>/</span></li>
+					<li><i class="fa fa-picture-o" aria-hidden="true"></i>Cart</li>
+				</ul>
+			</div>
+			<div class="w3layouts_breadcrumbs_right">
+				<h2>Cart</h2>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+<!-- //breadcrumbs -->
+<!-- gallery -->
+	<div class="welcome">
+		<div class="container">
+        <div class="col-lg-12">    
+            <h3 class="agileits_w3layouts_head">your <span>Cart</span></h3>
+            
+            {{# if posts}}
+<div class="row">
+    <div class="col-sm-9 col-md-9 col-md-offset-3 col-sm-offset-6 give">
+        <ul class="list-group">
+            {{# each posts }}
+            <li class="list-group-item">
+             <span  class="badge badge-secondary"><h3>{{this.qty}}</h3></span> 
+            <strong class="text-4">{{this.item.title}}</strong>
+            <span class="label label-success">NGN{{this.price}}</span>
+            {{!-- <div class="btn-group">
+                            <button class="btn btn-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown">Action <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Reduce by 1</a></li>
+                                <li><a href="#">Remove All</a></li>
+                            </ul>
+                        </div> --}}
+						
+            </li>
+            {{/each}}
+        </ul>
+        <div class="row">
+    <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+        <strong>total: <strong>{{ totalPrice }}</strong>  </strong>
+    </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+            <a href="/shop/ship" type="button" class="btn btn-success">Checkout</a>
+        </div> 
+		{{!-- /payment/checkout --}}
+    </div>
+    </div>
+
+</div>
+
+
+ {{else}}
+ <div class="row">
+    <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+        <h2>No items in cart</h2>
+    </div>
+</div>
+{{/if}}
+
+{{!-- 
+
+if(USer){ return true; }
+if(User){ return true; }
+if(User){ return}
+
+
+
+
+
+ --}}
+
+			
+        </div>
+		</div>
+	</div>
+<!-- //gallery -->
+	

@@ -1,0 +1,120 @@
+body{
+    background: url('https://media.giphy.com/media/OPe0iOKxATz2g/giphy.gif');
+     /* background-image: url('https://media.giphy.com/media/usSfuk7MZQH9S/giphy.gif'); */
+     background-image: url('https://media.giphy.com/media/aQCCNezRpb9Hq/giphy.gif');
+     background-repeat: no-repeat;
+    background-size: 100% 700px;
+     background-attachment: fixed;
+     
+ }
+    
+ /* https://media.giphy.com/media/3oKIPpFhwsMNrRIjN6/giphy.gif */
+
+li{
+    /* padding: 30px; */
+    color: white;
+}
+
+#color{
+    color: white;
+}
+
+.d-inline-block{
+    background-color: black;
+    border-radius: 50px;
+    opacity: 0.5;
+}
+
+.scrollable{
+    height: 300px;
+    overflow: scroll;
+}
+
+.rounded{
+    border-radius: 60px;
+}
+
+
+.nav-link{
+    color: black;
+}
+
+.nav{
+    background-color: rgb(212, 123, 6);
+    opacity: 0.7;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+#button{
+    background-color: rgb(212, 123, 6);
+}
+
+.about-content{
+    margin-top: 50px;
+    color: white;
+}
+
+.page-footer{
+    background-color: rgb(212, 123, 6);
+    opacity: 0.5;
+}
+
+
+
+
+
+
+/*=================================================search box ==========================================*/
+
+
+.searchbar{
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 60px;
+    background-color: #353b48;
+    border-radius: 30px;
+    padding: 10px;
+    }
+
+.search_input{
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color:transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+    }
+        
+
+.searchbar:hover > .search_input{
+    padding: 0 10px;
+    width: 450px;
+    caret-color:red;
+    transition: width 0.4s linear;
+    }    
+
+.searchbar:hover > .search_icon{
+    background: white;
+    color: #e74c3c;
+    }
+
+.search_icon{
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:white;
+    } 
+
+
+
+

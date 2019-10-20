@@ -1,0 +1,183 @@
+{{#if errors}}
+{{#each errors}}
+	<div class="alert alert-success alert-dismissible  show mt-2 auto-hide text-primary" role="alert">
+		  <strong>{{message}}</strong>
+
+			 <button type="button" class="close" data-dismiss="alert" aria-label="close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+
+	</div>
+
+{{/each}}
+{{/if}}
+
+<!-- banner -->
+	{{!-- <div class="banner1">
+		<div class="container">
+			<div class="w3_agileits_banner_main_grid">
+				<div class="w3_agile_logo">
+					<h1><a href="/"><span>A</span>pro-Tech<i>Grow healthy products</i></a></h1>
+				</div>
+				<div class="agile_social_icons_banner">
+					<ul class="agileits_social_list">
+						<li><a href="#" class="w3_agile_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+						<li><a href="#" class="agile_twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						<li><a href="#" class="w3_agile_dribble"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+						<li><a href="#" class="w3_agile_vimeo"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+					</ul>
+				</div>
+				<div class="agileits_w3layouts_menu">
+					<div class="shy-menu">
+						<a class="shy-menu-hamburger">
+							<span class="layer top"></span>
+							<span class="layer mid"></span>
+							<span class="layer btm"></span>
+						</a>
+						<div class="shy-menu-panel">
+							<nav class="menu menu--horatio link-effect-8" id="link-effect-8">
+								<ul class="w3layouts_menu__list">
+									<li><a href="/">Home</a></li>
+									<li><a href="/about">About Us</a></li> 
+									<li><a href="/services">Services</a></li>
+									<li class="active"><a href="/gallery">Gallery</a></li> 
+									<li><a href="/contact">Contact Us</a></li>
+								</ul>
+							</nav>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div> --}}
+<!-- banner -->
+<!-- bootstrap-pop-up -->
+	<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					Apro-Tech
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+				</div>
+				<section>
+					<div class="modal-body">
+						<img src="images/4.jpg" alt=" " class="img-responsive" />
+						<p>Ut enim ad minima veniam, quis nostrum 
+							exercitationem ullam corporis suscipit laboriosam, 
+							nisi ut aliquid ex ea commodi consequatur? Quis autem 
+							vel eum iure reprehenderit qui in ea voluptate velit 
+							esse quam nihil molestiae consequatur, vel illum qui 
+							dolorem eum fugiat quo voluptas nulla pariatur.
+							<i>" Quis autem vel eum iure reprehenderit qui in ea voluptate velit 
+								esse quam nihil molestiae consequatur.</i></p>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+<!-- //bootstrap-pop-up -->
+<!-- breadcrumbs -->
+	<div class="breadcrumbs">
+		<div class="container">
+			<div class="w3layouts_breadcrumbs_left">
+				<ul>
+					<li><i class="fa fa-home" aria-hidden="true"></i><a href="/">Home</a><span>/</span></li>
+					<li><i class="fa fa-picture-o" aria-hidden="true"></i>shipping address</li>
+				</ul>
+			</div>
+			<div class="w3layouts_breadcrumbs_right">
+				<h2>shipping address</h2>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+<!-- //breadcrumbs -->
+<!-- gallery -->
+	<div class="welcome">
+		<div class="container">
+		<div class="col-lg-3"></div>	
+		<div class="col-lg-6 border border-primary">	
+            <h3 class="agileits_w3layouts_head">your <span>shipping address</span></h3>
+            
+
+						{{!--  --}}
+
+			<form action="/shop/ship" method="POST" id="subscribeForm">
+					{{!-- <div class="form-group">
+					       <label for="exampleInputEmail1">First Name</label> --}}
+					       {{!-- <input type="hidden" value="{{user.fistName}}" name="firstName" class="form-control" id="firstName" aria-describedby="NameHelp" placeholder="First Name"  > --}}
+					       {{!-- <small id="nameHelp" class="form-text text-muted"></small>
+					</div> --}}
+					{{!-- <div class="form-group">
+							<label for="exampleInputEmail1">Last Name</label> --}}
+							{{!-- <input type="hidden" value="{{user.lastName}}" name="lastName" class="form-control" id="lastName" aria-describedby="NameHelp" placeholder="Last Name"  > --}}
+							{{!-- <small id="nameHelp" class="form-text text-muted"></small>
+					</div> --}}
+					{{!-- <div class="form-group">
+							<label for="exampleInputEmail1">Email address</label> --}}
+							{{!-- <input type="hidden" value="{{user.email}}" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" > --}}
+							{{!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+					</div> --}}
+					<div class="form-group">
+					       <label for="exampleInputPassword1">PHONE NUMBER</label>
+					       <input type="number" name="number" class="form-control" id="number" placeholder="phone number"  >
+					</div>
+					<div class="form-group">
+							<label for="exampleInputPassword1">ADDRESS</label>
+							<input type="text" name="address" class="form-control" id="address" placeholder="address"  >
+					</div>
+					<div class="form-group">
+						<div class="g-recaptcha" data-sitekey="6LdOBL4UAAAAAMiG0Y9RklaICgIBFW5wVxRlOsI-"></div>
+      			<br/>
+      			<input type="submit" value="Submit">
+					</div>		
+					{{!-- <button type="submit" class="btn btn-primary">Submit</button> --}}
+				  </form>
+
+		</div>
+
+
+
+
+		
+	<div class="col-lg-3"></div>
+		</div>
+	</div>
+<!-- //gallery -->
+	{{!-- <script src="js/lsb.min.js"></script>
+	<script>
+	$(window).load(function() {
+		  $.fn.lightspeedBox();
+		});
+	</script> --}}
+{{!-- <script>
+	document.getElementById('subscribeForm').addEventListener('Submit',
+	submitForm);
+
+	function  submitForm(e){
+		e.preventDefault();
+		const firstName =  document.querySelector('#fistName').value;
+		const lastName =  document.querySelector('#lastName').value;
+		const email =  document.querySelector('#email').value;
+		const number =  document.querySelector('#number').value;
+		const address =  document.querySelector('#address').value;
+		const captcha =  document.querySelector('#g-recaptcha-response').value;
+
+
+		fetch('/shop/ship', {
+			method: 'POST',
+			headers: {
+				'Accept': 'application/json, text/plain, */*',
+				'Content-type':'application/json'
+			},
+			body:JSON.stringify({firstName:firstName, lastName:lastName, email:email, number:number, address:address, captcha:captcha})
+		})
+		.then((res) => res.json())
+		.then((data) => {
+			console.log(data);
+			alert(data.msg);
+		});
+	}
+</script> --}}

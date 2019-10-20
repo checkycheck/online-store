@@ -1,0 +1,74 @@
+
+<!-- bootstrap-pop-up -->
+	<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					Apro-Tech
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+				</div>
+				<section>
+					<div class="modal-body">
+						<img src="images/4.jpg" alt=" " class="img-responsive" />
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+<!-- //bootstrap-pop-up -->
+<!-- breadcrumbs -->
+	<div class="breadcrumbs">
+		<div class="container">
+			<div class="w3layouts_breadcrumbs_left">
+				<ul>
+					<li><i class="fa fa-home" aria-hidden="true"></i><a href="/">Home</a><span>/</span></li>
+					<li><i class="fa fa-picture-o" aria-hidden="true"></i>Overview</li>
+				</ul>
+			</div>
+			<div class="w3layouts_breadcrumbs_right">
+				<h2>Overview</h2>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+<!-- //breadcrumbs -->
+<!-- gallery -->
+	<div class="welcome">
+		<div class="container">
+			<div class="row">
+        <div class="col-lg-9">    
+            <h3 class="agileits_w3layouts_head">PAYMENT <span>OVERVIEW</span></h3>
+						<hr>
+  
+
+
+{{!-- <div class="content9> --}}
+    {{!-- <div class="section1"> --}}
+        {{!-- <div class="col-lg-9">
+      <h1>Make payment of</h1>
+      <h1>NGN{{ totalPrice }}</h1>
+      <hr>
+    </div> --}}
+<div class="col-lg-4"></div>
+<div class="col-lg-6">
+		<h3>{{user.firstName}} you are paying the total of NGN{{totalPrice}}</h3>
+
+
+    <form name='myForm' action="paystack/pay" method="POST" class="text-center">
+      <input type="hidden" value="{{user.firstName}}" name="full_name">
+      <input type="hidden" value="{{user.email}}" name="email"  id="email">
+      <input type="hidden" name="amount" id="amount" value="{{totalPrice}}">
+			<button type="submit"class="primary rex-bottom-medium rex-btn-icon">
+            <span class="rex-btn-text" >Proceed To Payment</span>
+            <span class="rex-btn-text-icon"><i class="fa fa-arrow-circle-o-right"></i></span>
+      </button>
+    </form>
+		</div>
+		<div class="col-lg-2"></div>
+
+    </div>
+        </div>
+		</div>
+	</div>
+
+	

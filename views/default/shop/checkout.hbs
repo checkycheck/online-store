@@ -1,0 +1,144 @@
+<!-- banner -->
+	<div class="banner1">
+		<div class="container">
+			<div class="w3_agileits_banner_main_grid">
+				<div class="w3_agile_logo">
+					<h1><a href="/"><span>A</span>pro-Tech<i>Grow healthy products</i></a></h1>
+				</div>
+				<div class="agile_social_icons_banner">
+					<ul class="agileits_social_list">
+						<li><a href="#" class="w3_agile_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+						<li><a href="#" class="agile_twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						<li><a href="#" class="w3_agile_dribble"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+						<li><a href="#" class="w3_agile_vimeo"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+					</ul>
+				</div>
+				<div class="agileits_w3layouts_menu">
+					<div class="shy-menu">
+						<a class="shy-menu-hamburger">
+							<span class="layer top"></span>
+							<span class="layer mid"></span>
+							<span class="layer btm"></span>
+						</a>
+						<div class="shy-menu-panel">
+							<nav class="menu menu--horatio link-effect-8" id="link-effect-8">
+								<ul class="w3layouts_menu__list">
+									<li><a href="/">Home</a></li>
+									<li><a href="/about">About Us</a></li> 
+									<li><a href="/services">Services</a></li>
+									<li class="active"><a href="/gallery">Gallery</a></li> 
+									<li><a href="/contact">Contact Us</a></li>
+								</ul>
+							</nav>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+<!-- banner -->
+<!-- bootstrap-pop-up -->
+	<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					Apro-Tech
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+				</div>
+				<section>
+					<div class="modal-body">
+						<img src="images/4.jpg" alt=" " class="img-responsive" />
+						<p>Ut enim ad minima veniam, quis nostrum 
+							exercitationem ullam corporis suscipit laboriosam, 
+							nisi ut aliquid ex ea commodi consequatur? Quis autem 
+							vel eum iure reprehenderit qui in ea voluptate velit 
+							esse quam nihil molestiae consequatur, vel illum qui 
+							dolorem eum fugiat quo voluptas nulla pariatur.
+							<i>" Quis autem vel eum iure reprehenderit qui in ea voluptate velit 
+								esse quam nihil molestiae consequatur.</i></p>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+<!-- //bootstrap-pop-up -->
+<!-- breadcrumbs -->
+	<div class="breadcrumbs">
+		<div class="container">
+			<div class="w3layouts_breadcrumbs_left">
+				<ul>
+					<li><i class="fa fa-home" aria-hidden="true"></i><a href="/">Home</a><span>/</span></li>
+					<li><i class="fa fa-picture-o" aria-hidden="true"></i>Login</li>
+				</ul>
+			</div>
+			<div class="w3layouts_breadcrumbs_right">
+				<h2>Login</h2>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+<!-- //breadcrumbs -->
+<!-- gallery -->
+	<div class="welcome">
+		<div class="container">
+        <div class="col-lg-9">    
+            <h3 class="agileits_w3layouts_head">Our <span>Login</span></h3>
+  
+
+
+{{!-- <div class="content9> --}}
+    {{!-- <div class="section1"> --}}
+      <h1>Make payment of</h1>
+      <h1>NGN{{ totalPrice }}</h1>
+      <hr>
+    </div>
+
+    <form name='myForm' action="paystack/pay" method="POST">
+    <div class="form-group">
+
+                    <label for="exampleInputPassword1">Full name</label>
+                      <input type="text" name="full_name" class="form-control" id="full_name" placeholder="fullname">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email address</label>
+                      <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+
+      {{!-- <h1>FULL_NAME</h1>
+      <input type="text" name="full_name" id="full_name" placeholder="full_name">
+      <h1>EMAIL</h1>
+      <input type="email" name="email" id="email" placeholder="email"> --}}
+      
+      <input type="hidden" name="amount" id="amount" value="{{totalPrice}}"><br><br>
+
+      <button type="submit"class="primary rex-bottom-medium rex-btn-icon">
+            <span class="rex-btn-text" >Submit</span>
+            <span class="rex-btn-text-icon"><i class="fa fa-arrow-circle-o-right"></i></span>
+      </button>
+      </div>
+    </form>
+  {{!-- </div> --}}
+
+
+
+{{!-- 
+
+if(USer){ return true; }
+if(User){ return true; }
+if(User){ return}
+
+
+
+
+
+ --}}
+
+			
+        </div>
+		</div>
+	</div>
+<!-- //gallery -->
+	
