@@ -1,20 +1,76 @@
 <div class="banner1">
 		<div class="container">
-			<div class="w3_agileits_banner_main_grid">
+			<div class="row">
+				<div class="w3_agile_logo">
+					<h1><a href="/"><span>A</span>pro-Tech<i></i></a></h1>
+				</div>
+				 <div class="col-md-12">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active m-3">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+	  {{#if user}}
+      <li class="nav-item  m-3">
+        <a class="nav-link" href="/shop/shopping-cart">
+			<i class="fa fa-shopping-cart" aria-hidden="true"></i>shopping cart 
+            <span class="badge">{{session.cart.totalQty}}</span>
+		</a>
+      </li>
+	  <li class="nav-item m-3">
+		  <a href="/dashboard" class="nav-link">Dashboard</a>
+	  </li>
+	  <li class="nav-item m-3">
+		  <a href="/logout" class="nav-link">Logout</a>
+	  </li>
+	  {{else}}
+	  <li class="nav-item m-3">
+		  <a href="/register" class="nav-link">Register</a>
+	  </li>
+	  <li class="nav-item m-3">
+		  <a href="/login" class="nav-link">Login</a>
+	  </li>
+	  {{/if}}
+	  <li class="nav-item m-3">
+		  <a href="/services" class="nav-link">Services</a>
+	  </li>
+	  <li class="nav-item m-3">
+		  <a href="/contact" class="nav-link">Contact</a>
+	  </li>
+	  <li class="nav-item m-3">
+		  <a href="/about" class="nav-link">About</a>
+	  </li>
+      {{!-- <li class="nav-item dropdown  m-3">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li> --}}
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+        </div>
+			</div>
+			{{!-- <div class="w3_agileits_banner_main_grid">
 				<div class="w3_agile_logo">
 					<h1><a href="/"><span>A</span>pro-Tech<i></i></a></h1>
 				</div>
 				<br><br><br><br>
-				{{!-- <div class="agileits_w3layouts_menu">
-					<div class="shy-menu">
-						 <a class="shy-menu-hamburger">
-							<span class="layer top"></span>
-							<span class="layer mid"></span>
-							<span class="layer btm"></span>
-
-							menu menu--horatio link-effect-8   
-
-						</a>  --}}
 						<div class="shy-menu-panel">
 							<nav class="navbar navbar-expand-lg" id="link-effect-8">
 								<ul class="w3layouts_menu__list">
@@ -38,10 +94,7 @@
 								</ul>
 							</nav>
 						</div>
-						{{!-- <div class="clearfix"> </div> --}}
-					</div>
-				{{!-- </div> --}}
-				{{!-- <div class="clearfix"> </div> --}}
-			</div>
+					
+			</div> --}}
 		</div>
 	</div>
