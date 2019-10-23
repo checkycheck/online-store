@@ -6,9 +6,11 @@
         <script>
             if('geolocation' in navigator){
                 console.log('geolocation available');
+               // console.log(position.coords.latitude);
+               // console.log(position.coords.longitu);
                 navigator.geolocation.getCurrentPosition(position => {
                    const lat = 8.8556838;
-
+                    console.log(position.coords.latitude);
                    if(position.coords.latitude == lat){
                        console.log('you are good to go');
                    }else{
@@ -40,7 +42,7 @@
            </tr>
         </thead>
         <tbody class="text-center ">
-            {{#each posts2}}
+            {{#each posts}}
             <tr>
                 {{!-- <td>{{_id}}</td> --}}
                 <td>{{title}}</td>
@@ -52,7 +54,7 @@
                 <td class="d-flex">
                     <a href="/posts2/edit2/{{_id}}" class="btn btn-sm btn-warning mr-2">Edit post</a>
 
-                     <form action="/posts2/delete2/{{id}}?newMethod=DELETE" method="post">
+                     <form action="/posts/delete/{{id}}?newMethod=DELETE" method="post">
                         <button class="btn btn-sm btn-danger" type="submit">Delete Post</button>
                     </form>
                 </td>

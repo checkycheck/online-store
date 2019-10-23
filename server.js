@@ -168,7 +168,7 @@ app.get('/receipt/:id', (req, res) => {
             res.redirect('/users/error')
         }
         console.log(pay)
-        let payAmount = pay.amount / 100
+        let payAmount = pay.amount/100
         req.session.cart = null
         res.render('payment/success', { pay, payAmount });
     }).catch((e) => {

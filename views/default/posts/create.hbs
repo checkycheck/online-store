@@ -3,17 +3,17 @@
 
     <div class="row">
         <div class="col-lg-3"></div>
-        <div class="col-lg-6 m-2 border border-primary">
-             <h1>create new post</h1>
-            <form action="/posts2/create2" method="post" enctype="multipart/form-data">
+        <div class="col-lg-6 shadow-lg m-5">
+             <h1>Create New Product</h1>
+            <form action="/posts/create" method="post" enctype="multipart/form-data">
 
                 <div class="form-group">
-                    <label for="title">title</label>
+                    <label for="title">Product Title</label>
                     <input type="text" class="form-control" name="title" id="title" placeholder="enter the title">
                 </div>
 
                 <div class="form-group">
-                    <label for="status">status</label>
+                    <label for="status">Product Status</label>
                     <select name="status" id="status" class="form-control">
                         <option value="public">Public</option>
                         <option value="private">Private</option>
@@ -23,7 +23,7 @@
                 </div>
 
                  <div class="form-group">
-                    <label for="category">category</label>
+                    <label for="category">Category</label>
                     <select name="category" id="category" class="form-control">
                         {{#each categories}}
                         <option value="{{_id}}">{{title}}</option>
@@ -32,26 +32,26 @@
                 </div> 
                     <input type="hidden" value="{{user._id}}" class="form-control" name="user" id="user" >
                 <div class="form-group">
-                    <label for="file">file</label>
-                    <input type="file" class="form-control" name="uploadedFile" id="file" placeholder="upload_image">
+                    <label for="file">Product Picture</label>
+                    <input type="file" class="form-control" name="uploadedFile"  id="file" accept="image/*" capture required>
                 </div>
                 <div class="form-group">
-                    <label for="file">price</label>
-                    <input type="number" class="form-control" name="price" id="price" placeholder="price">
+                    <label for="file">Give Your Product A Price</label>
+                    <input type="number" class="form-control" name="price" id="price" placeholder="price" required>
                 </div>       
                 <div class="form-check ml-3">
                     <label for="allowComments">
-                        <input type="checkbox" class="form-check-input" id="allowComments" name="allowComments">
+                        <input type="checkbox" class="form-check-input" id="allowComments" name="allowComments"> <br>
                          Allow comments
                     </label>
                 </div>
 
                 <div class="form-group">
-                    <label for="description">content</label>
+                    <label for="description">Discribe Your Product</label>
                     <textarea name="description" id="description" class="form-control" placeholder="enter your content" cols="15" rows="5"></textarea>
                 </div>
 
-                <button class="btn btn-outline-success btn-lg" type="submit">create post</button>
+                <button class="btn btn-dark m-2 text-light" type="submit">create post</button>
 
 
             </form>

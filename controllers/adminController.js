@@ -34,7 +34,7 @@ module.exports = {
 
 
     getUserPosts: async (req, res) =>{
-        const user = await user.find();
+        // const user = await user.find();
         const posts2 = await Post2.find();
         const Categories = await Category.find();
         res.render('admin/posts/userPosts', {posts2: posts2, Categories: Categories});
@@ -69,6 +69,7 @@ module.exports = {
             status: req.body.status,
             file: `/uploads/${filename}`,
             price:req.body.price,
+            user: req.body.user,
             allowComments: commentsAllowed,
             category: req.body.category
         });

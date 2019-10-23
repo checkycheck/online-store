@@ -13,6 +13,35 @@ const request = require('request');
 
 
 
+
+//===================================== start cloundinary configurations========================================================
+
+// var multer = require('multer');
+// var storage = multer.diskStorage({
+//   filename: function(req, file, callback) {
+//     callback(null, Date.now() + file.originalname);
+//   }
+// });
+// var imageFilter = function (req, file, cb) {
+    
+//     if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
+//         return cb(new Error('Only image files are allowed!'), false);
+//     }
+//     cb(null, true);
+// };
+// var upload = multer({ storage: storage, fileFilter: imageFilter})
+
+// var cloudinary = require('cloudinary');
+// cloudinary.config({ 
+//   cloud_name: 'jubel', 
+//   api_key: '394513677318352', 
+//   api_secret: 'EfBk3Lz_X28ifXOvO3txvtc1Rp8'
+// });
+
+//===================================== end of cloundinary configuration========================================================
+
+
+
 module.exports = {
     index: async (req, res)=>{
         
@@ -193,6 +222,9 @@ module.exports = {
     //     res.render('default/product', {posts: posts, Categories:Categories });
     // },
 
+
+
+
     addToCartGet: (req, res) =>{
         var productId = req.params.userid;
         var cart = new Cart(req.session.cart ? req.session.cart : {});
@@ -215,10 +247,10 @@ module.exports = {
 
     shoppingCartGet: (req, res, next) => {
         if(!req.session.cart){
-          return res.render('default/shop/shopping-cart', {posts: null});
+          return res.render('default/shop/shopping-cart', {posts: null, posts2: null});
         }
         var cart = new Cart(req.session.cart);
-        res.render('default/shop/shopping-cart', {posts: cart.generateArray(), totalPrice: cart.totalPrice});
+        res.render('default/shop/shopping-cart', {posts: cart.generateArray(), totalPrice: cart.totalPrice, posts2: cart.generateArray()});
       },
 
       dashboardGet: (req, res) =>{
@@ -254,18 +286,18 @@ module.exports = {
     // user product posts
 
 
-    getPosts2:  (req, res, next) =>{
+    getPosts:  (req, res, next) =>{
         console.log('USER IS', req.user._id);
         // console.log('POST USER ID', _.filter(Post2) );
 
 
-        Post2.find({user: req.user}, function (err, posts2){
+        Post.find({user: req.user}, function (err, posts){
             if(err){
                 return req.flash('error', 'problem finding this page');
             }
        
-            res.render('default/posts2/index2', {posts2: posts2});
-        })
+            res.render('default/posts/index', {posts: posts});
+        });
 
    
         
@@ -282,9 +314,37 @@ module.exports = {
     },
   
 
-    submitPosts2:  async (req, res) =>{
+    submitPosts:  async (req, res) =>{
 
         const commentsAllowed = req.body.allowComments ? true : false;
+
+
+        //==================== start of cloudinary=========================================
+
+
+        // cloudinary.uploader.upload(req.file.path, function(result) {
+        //     // add cloudinary url for the image to the campground object under image property
+        //     req.body.campground.image = result.secure_url;
+        //     // add author to campground
+        //     req.body.campground.author = {
+        //       id: req.user._id,
+        //       username: req.user.username
+        //     }
+        //     Campground.create(req.body.campground, function(err, campground) {
+        //       if (err) {
+        //         req.flash('error', err.message);
+        //         return res.redirect('back');
+        //       }
+        //       res.redirect('/campgrounds/' + campground.id);
+        //     });
+        //   });
+
+
+        //==================== end of cloudinary============================
+
+
+
+
      
         // check for new file
         let fileName = '';
@@ -304,7 +364,7 @@ module.exports = {
 
     //    =================================================== PREVIOUS FUNTIONAL CODE ====================================================
 
-       const  newPost2 = new Post2({
+       const  newPost = new Post({
             title: req.body.title,
             description: req.body.description,
             status: req.body.status,
@@ -319,10 +379,10 @@ module.exports = {
         
 
 
-       await newPost2.save().then(post2 => {
-            console.log('POSTS',post2);
+       await newPost.save().then(post => {
+            console.log('POSTS',post);
             req.flash('success-message', 'Post created successfully.');
-            res.redirect('/posts2');
+            res.redirect('/posts');
         });
 
 
@@ -332,12 +392,12 @@ module.exports = {
     
     },
 
-    createPosts2: (req, res) =>{
+    createPosts: (req, res) =>{
         // console.log('REQ_post', req.post2);
 
 //  ===========previous code===========================================
         Category.find().then(cats => {
-            res.render('default/posts2/create2', {categories: cats});
+            res.render('default/posts/create', {categories: cats});
         });
 
     },
@@ -385,12 +445,12 @@ module.exports = {
     
     },
 
-    deletePost2: (req, res) => {
+    deletePost: (req, res) => {
 
-        Post2.findByIdAndDelete(req.params.id)
-            .then(deletedPost2 => {
-                req.flash('success-message', `The post ${deletedPost2.title} has been deleted.`);
-                res.redirect('/posts2');
+        Post.findByIdAndDelete(req.params.id)
+            .then(deletedPost => {
+                req.flash('success-message', `The post ${deletedPost.title} has been deleted.`);
+                res.redirect('/posts');
             });
     },
     

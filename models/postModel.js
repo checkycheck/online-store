@@ -27,14 +27,28 @@ const PostSchema = new Schema({
         default: Date.now
     },
 
+    // user: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'user'
+    // },
+
     user: {
+        type:    [{
         type: Schema.Types.ObjectId,
         ref: 'user'
+    }],
     },
 
+    // category: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'category'
+
+    // },
     category: {
+        type: [{
         type: Schema.Types.ObjectId,
         ref: 'category'
+    }]
 
     },
     comments: [

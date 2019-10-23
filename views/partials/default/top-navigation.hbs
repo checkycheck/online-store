@@ -12,28 +12,29 @@
 							<span class="layer mid"></span>
 							<span class="layer btm"></span>
 
+							menu menu--horatio link-effect-8   
 
 						</a>  --}}
 						<div class="shy-menu-panel">
-							<nav class="menu menu--horatio link-effect-8" id="link-effect-8">
+							<nav class="navbar navbar-expand-lg" id="link-effect-8">
 								<ul class="w3layouts_menu__list">
-									<li><a href="/">Home</a></li>
+									<li class="nav-item"><a  class="nav-link" href="/">Home</a></li>
 									{{#if user}}
 									<li>
-                                  		<a href="/shop/shopping-cart">
+                                  		<a class="nav-link" href="/shop/shopping-cart">
                         					<i class="fa fa-shopping-cart" aria-hidden="true"></i>shopping cart 
                         					<span class="badge">{{session.cart.totalQty}}</span>
                     					</a>
                     				</li>
-									<li><a href="/dashboard">Dashboard</a></li> 
+									<li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li> 
 									<li><a href="/logout">Logout</a></li>
 									{{else}}
-									<li><a href="/register">Register</a></li> 
-									<li><a href="/login">Login</a></li> 
-									<li><a href="/about">About Us</a></li> 
-									<li><a href="/services">Services</a></li>
+									<li class="nav-item"><a class="nav-link" href="/register">Register</a></li> 
+									<li class="nav-item"><a class="nav-link" href="/login">Login</a></li> 
+									<li class="nav-item"><a class="nav-link" href="/about">About Us</a></li> 
+									<li class="nav-item"><a class="nav-link" href="/services">Services</a></li>
 									{{/if}}
-									<li><a href="/contact">Contact Us</a></li>
+									<li class="nav-item"><a class="nav-link" href="/contact">Contact Us</a></li>
 								</ul>
 							</nav>
 						</div>
