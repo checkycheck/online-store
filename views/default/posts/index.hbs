@@ -3,28 +3,7 @@
     <div class="col-lg-3"></div>
      <div class="col-lg-6 ml-5">   
     <div class="alert alert-secondty text-center">
-        <script>
-            if('geolocation' in navigator){
-                console.log('geolocation available');
-               // console.log(position.coords.latitude);
-               // console.log(position.coords.longitu);
-                navigator.geolocation.getCurrentPosition(position => {
-                   const lat = 8.8556838;
-                    console.log(position.coords.latitude);
-                   if(position.coords.latitude == lat){
-                       console.log('you are good to go');
-                   }else{
-                       console.log('you are bad to go');
-                   }
-
-                   console.log(position.coords.latitude);
-                   console.log(position.coords.longitude);
-                });
-
-            }else{
-                console.log('geolocation not available');
-            }
-        </script>
+       
         <h1>ALL PRODUCTS</h1>
     </div>
 
@@ -52,7 +31,7 @@
                 <td>{{allowComments}}</td>
                 <td>{{category.title}}</td>
                 <td class="d-flex">
-                    <a href="/posts2/edit2/{{_id}}" class="btn btn-sm btn-warning mr-2">Edit post</a>
+                    {{!-- <a href="/posts2/edit2/{{_id}}" class="btn btn-sm btn-warning mr-2">Edit post</a> --}}
 
                      <form action="/posts/delete/{{id}}?newMethod=DELETE" method="post">
                         <button class="btn btn-sm btn-danger" type="submit">Delete Post</button>
@@ -66,3 +45,30 @@
 <div class="col-lg-3"></div>  
 </div>
 </div>
+
+
+
+ <script>
+            if('geolocation' in navigator){
+                console.log('geolocation available');
+               // console.log(position.coords.latitude);
+               // console.log(position.coords.longitu);
+                navigator.geolocation.getCurrentPosition(position => {
+                   const lat = 8.8556838;
+                    console.log(position.coords.latitude);
+                   if(position.coords.latitude == lat){
+                       console.log('you are good to go');
+                      // $(".test").hide();
+                   }else{
+                       console.log('you are bad to go');
+                       $(".table").hide()
+                   }
+
+                   console.log(position.coords.latitude);
+                   console.log(position.coords.longitude);
+                });
+
+            }else{
+                console.log('geolocation not available');
+            }
+        </script>
