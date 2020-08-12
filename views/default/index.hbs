@@ -5,12 +5,12 @@
 	<div class="container-fluid">
 		<div class="col-lg-12">
 			<h1>Company Product</h1>
-			{{#each posts}}
+			{{#each approves}}
 			<div class="col-lg-4 border-info mb-3">
 				<img src="{{file}}" class="img-fluid img-responsive m-1 w-4180px h-2787"   alt="">
 				<h2>{{title}}</h2>price <span class="badge">NGN{{price}}</span>
 				<p>{{description}} was posted on
-				the {{creationDate}}
+				the {{creationDate}} by   <div>{{this.firstName}}</div> 
 				</p>
 				<a href="/add-to-cart/{{_id}}">
 					<button type="button" class="btn btn-sm btn-outline-secondary">Add to cart</button>
@@ -20,7 +20,7 @@
 		</div>
 	</div>
 </div>
-
+{{!-- {{#each users}} <div>{{firstName}}</div> {{/each}} --}}
 
 
 
@@ -306,9 +306,10 @@
 			</div>
 			<p class="agile_para agileits_para">We Keep You Updated On New Products And Our Policies.</p>
 			<div class="w3ls_news_grids w3ls_newsletter_grids">
-				<form action="#" method="post">
-					<input name="Your Name" placeholder="Your Name" type="text" required="">
-					<input name="Your Email" placeholder="Your Email" type="email" required="">
+				<form action="/mailchimp" method="post" enctype="multipart/form-data">
+					{{!-- <input name="Your Name" placeholder="Your Name" type="text" required=""> --}}
+					<input name="email_address" placeholder="Your Email" type="email" required="">
+					{{!-- <input type="hidden" name="status" value="subscribed"> --}}
 					<input type="submit" value="Subscribe">
 				</form>
 			</div>

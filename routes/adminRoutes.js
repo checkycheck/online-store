@@ -17,6 +17,10 @@ router.route('/')
 router.route('/posts')
     .get(adminController.getPosts);
 
+router.route('/posts/approve')
+    .get(adminController.approve)
+    .post(adminController.approvePosts); 
+
 router.route('/posts/userPosts')
     .get(adminController.getUserPosts);
 

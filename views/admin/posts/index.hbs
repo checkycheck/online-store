@@ -1,4 +1,6 @@
 <div class="continer">
+    <div class="row">
+    <div class="col-lg-10">
     <div class="alert alert-secondty text-center">
         <h1>ALL PRODUCTS</h1>
     </div>
@@ -27,17 +29,25 @@
                 <td>{{allowComments}}</td>
                 <td>{{category.title}}</td>
                 <td class="d-flex">
-                    {{!-- <a href="/admin/posts/edit/{{_id}}" class="btn btn-sm btn-warning mr-2">Edit post</a> --}}
-
-                     <form action="/admin/posts/delete/{{id}}?newMethod=DELETE" method="post">
-                        <button class="btn btn-sm btn-danger" type="submit">Delete Post</button>
+                    <form action="/admin/posts/approve" method="post" enctype="multipart/form-data">
+                        <input type="hidden" value="{{title}}" class="form-control"  name="title" id="title" placeholder="enter the title"> 
+                        {{!-- <input type="hidden" value="{{user}}"  class="form-control" name="user"> --}}
+                        <input type="hidden" value="{{file}}" class="form-control" name="file" id="file" placeholder="upload_image">
+                        <input type="hidden" value="{{price}}" class="form-control" name="price" id="price" placeholder="price">
+                        <input type="hidden" value="{{allowComments}}" class="form-check-input" id="allowComments" name="allowComments">
+                        <input type="hidden" value="{{description}}" name="description">
+                        <button class="btn btn-sm btn-success" type="submit">Approve</button>
+                    </form>
+                    <form action="/admin/posts/delete/{{id}}?newMethod=DELETE" method="post">
+                        <button class="btn btn-sm btn-danger" type="submit">Delete</button>
                     </form>
                 </td>
             </tr>
             {{/each}}
         </tbody>
     </table>
-
+</div>    
+</div>
 </div>
 
 

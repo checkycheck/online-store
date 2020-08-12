@@ -22,7 +22,8 @@ const _ = require('lodash');
 const request = require('request');
 const { initializePayment, verifyPayment } = require('./config/paystack')(request);
 const bodyParser = require('body-parser');
-
+const Order = require('./models/order').Order;
+// const Cart = require('./models/cart');
 
 
 const app = express();
@@ -159,6 +160,7 @@ app.get('/paystack/callback', (req, res) => {
 });
 
 app.get('/receipt/:id', (req, res) => {
+    var cart = new Cart(req.session.cart);
     const id = req.params.id;
     console.log(id)
 
@@ -167,10 +169,27 @@ app.get('/receipt/:id', (req, res) => {
             //handle error when the donor is not found
             res.redirect('/users/error')
         }
-        console.log(pay)
+
+        var order = new Order({
+            user: req.user,
+            cart: cart
+        });
+        order.save(function(err, result){
+            if(err){
+                console.log(err);
+            }
+            console.log(pay)
+            console.log(order);
         let payAmount = pay.amount/100
         req.session.cart = null
         res.render('payment/success', { pay, payAmount });
+
+        });
+
+        // console.log(pay)
+        // let payAmount = pay.amount/100
+        // req.session.cart = null
+        // res.render('payment/success', { pay, payAmount });
     }).catch((e) => {
         res.redirect('/users/error')
     })

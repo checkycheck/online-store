@@ -144,6 +144,9 @@ router.route('/register')
   .get(defaultController.registerGet)
   .post(defaultController.registerPosts);
 
+router.route('/picture')
+  .post(defaultController.profilePicture);
+
 
   router.use(bodyParser.urlencoded({extended: false}));
   router.use(bodyParser.json());
@@ -179,7 +182,8 @@ router.route('/dashboard')
 
 
 router.route('/profile')  
-  .get(defaultController.profileGet);
+  .get(defaultController.profileGet)
+  .post(defaultController.profilePost);
 
 
 router.route('/logout')
@@ -227,8 +231,56 @@ router.route('/posts2/edit2/:id', isUserAuthenticated)
  .put(defaultController.editPostSubmit2);
 
 
+// router.route('/profile/edit')
+//   .put(defaultController.editProfile);
+
+router.route('/editprofile/:id')
+  .get(defaultController.editprofileGet)
+  .put(defaultController.editprofilePut);  
+  
+
 router.route('/posts/delete/:id', isUserAuthenticated)
  .delete(defaultController.deletePost);     
+
+
+
+ router.route('/mailchimp')
+ .post(function(req, res){
+  addEmailToMailchimp(req.body.email)
+  console.log(req.body.email);
+ 
+});
+
+
+function addEmailToMailchimp(email){
+var request = require("request");
+
+var options = { method: 'POST',
+  url: 'https://us5.api.mailchimp.com/3.0/lists/bd540b6555/members',
+  headers: 
+   { 'cache-control': 'no-cache',
+     Connection: 'keep-alive',
+     Cookie: '_AVESTA_ENVIRONMENT=prod; _mcid=1.2c44858818cc95873ea97b9a9f2bdffe.945795d13273c6b97275ee641b073a0fb97ebdb0184184d8ac9be458a35ad7cb',
+     'Content-Length': '65',
+     'Accept-Encoding': 'gzip, deflate',
+     Host: 'us5.api.mailchimp.com',
+     'Postman-Token': '59c8cbb4-2590-4918-b4dd-8269d45e3208,8d65d8a4-4b15-4e2b-a4f4-a511c8cc6394',
+     'Cache-Control': 'no-cache',
+     Accept: '*/*',
+     'User-Agent': 'PostmanRuntime/7.19.0',
+     Authorization: 'Basic ZXN0b3Jlc21haWxlcjpiOTRlZGYxOWNmNzljZjYzODA2NDFiNGE3MzA1ODE3Mi11czU=',
+     'Content-Type': 'application/json' },
+  body: { email_address: email, status: 'subscribed' },
+  json: true };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+}
+
+
 
 
   module.exports = router;

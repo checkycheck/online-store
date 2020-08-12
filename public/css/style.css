@@ -5,10 +5,10 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
 html, body{
-	/* background: url('https://media.giphy.com/media/OPe0iOKxATz2g/giphy.gif'); */
+	background: url('https://media.giphy.com/media/OPe0iOKxATz2g/giphy.gif');
     font-size: 100%;
 	font-family: 'Open Sans', sans-serif;
-	background:#ffffff;
+	/* background:#ffffff; */
 	margin: 0;
 }
 
@@ -16,6 +16,13 @@ html, body{
 	color: black
 	
 }
+/* (80px - button height 34px) / 2 = 23px */
+.navbar-toggler {
+	
+	/* margin: 2px; */
+	/* padding: 0px 0px !important; */
+	width: 100px !important;
+  }
 p,ul li,ol li{
 	margin:0;
 	font-size:14px;

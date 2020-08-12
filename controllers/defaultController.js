@@ -3,6 +3,7 @@ const Category = require('../models/CategoryModel').Category;
 const bcrypt = require('bcryptjs');
 const User = require('../models/UserModel').User;
 const Ship = require('../models/ship').Ship;
+const Profile = require('../models/profile').Profile;
 const Cart = require('../models/cart');
 const Post = require('../models/postModel').Post;
 const {isEmpty} = require('../config/customFunctions');
@@ -10,6 +11,7 @@ const {isUserAuthenticated} = require("../config/customFunctions");
 const _ = require('lodash');
 const bodyParser = require('body-parser');
 const request = require('request');
+const Approve = require('../models/approve').Approve
 
 
 
@@ -47,10 +49,11 @@ module.exports = {
         
         const users = await User.find();
         const posts2 = await Post2.find();
-        const posts = await Post.find();
+        const posts = await Post.find().sort({_id:-1});
+        const approves = await Approve.find().sort({_id:-1});
         const Categories = await Category.find();    Categories:Categories, 
 
-    res.render('default/index', {posts: posts, posts2: posts2, users:users});
+    res.render('default/index', {posts: posts,  users:users, approves:approves});
     },
     aboutPosts: (req, res) =>{
         res.render('default/about');
@@ -75,16 +78,6 @@ module.exports = {
     },
     shipPost: (req, res) => {
         let errors = [];
-
-        // if(!req.body.firstName) {
-        //     errors.push({message: 'first name is mandetory'});
-        // }
-        // if(!req.body.lastName) {
-        //     errors.push({message: 'last name is mandetory'});
-        // }
-        // if(!req.body.email) {
-        //     errors.push({message: 'email is mandetory'});
-        // }
         if(!req.body.number) {
             errors.push({message: 'phone number not match'});
         }
@@ -92,53 +85,7 @@ module.exports = {
             errors.push({message: 'address not match'});
         }
 
-        // router.use(bodyParser.urlencoded({extended: false}));
-        // router.use(bodyParser.json());
 
-        // =========================new code =================================================
-
-        // if(
-        //     req.body.captcha === undefined ||
-        //     req.body.captcha === '' ||
-        //     req.body.captcha === null
-        // ){
-        //     return res.json({"success": false, "msg":"please select captcha"});
-        // }
-
-        // secret key
-        // const secretKey = '6LdOBL4UAAAAAKAzd1XC9lnuOrybVZpa1GbxdRgg';
-
-
-        // verify URL
-        // const verifyUrl = `https://google.com/recaptcha/api/siteverify?secret=$
-        // {secretKey}&response=${req.body.captcha}&remoteip=${req.connection.remoteAddress}`;
-
-        // make request to verifiyURL
-        // request(verifyUrl, (err, response, body) =>{
-        //     body = JSON.parse(body);
-        //     console.log(body);
-
-            // if not successful
-            // if(body.success !== undefined && !body.success){
-            //     return res.json({"success": false, "msg":"failed captcha verification"});
-            // }
-
-            // if successful
-
-        //     const newShip = new Ship(req.body);
-        //     newShip.save().then(ship => {
-        //         req.flash('success-message', 'shipping address save successfully');
-        //         res.redirect('/payment/checkout');
-        //     });
-        // });
-
-
-
-
-
-
-
-// =====================previous code====================================================================
         const newShip = new Ship(req.body);
         newShip.save().then(ship => {
             req.flash('success-message', 'shipping address save successfully');
@@ -147,6 +94,11 @@ module.exports = {
 
 
     },
+    // update: (req, res) => {
+
+    //     let error = [];
+    //     if(!req.body.account)
+    // },
     registerPosts: (req, res) =>{
         let errors = [];
 
@@ -202,6 +154,7 @@ module.exports = {
 
 
     },
+
     productGet:(req, res) =>{
         //begining new code
             //   Post.find((err, docs) =>{
@@ -269,12 +222,162 @@ module.exports = {
 
     profileGet: (req, res) =>{
 
-        res.render('default/profile', {
-            firstName: req.user.firstName,
-            lastName: req.user.lastName,
-            email: req.user.email
+        const id = req.params.id;
+        // let user = req.user
+        // console.log(user)
+
+        Profile.find({user: req.user, id}, function (err, profiles){
+            // console.log(profiles)
+            if(err){
+                return req.flash('error', 'problem finding this page');
+            }
+            
+
+        res.render('default/profile', {profiles:profiles});
+            // res.render('default/posts/index', {posts: posts});
         });
+
+
+
+
+
+
+        // res.render('default/profile', {
+        //     firstName: req.user.firstName,
+        //     lastName: req.user.lastName,
+        //     email: req.user.email
+        // });
     },
+    profilePicture: async (req, res)=>{
+
+                // check for new file
+                let fileName = '';
+
+                if(!isEmpty(req.files)){
+                    let file = req.files.picture;
+                    filename = file.name;
+                    let uploadDir = './public/uploads/';
+        
+                    file.mv(uploadDir+filename, (err) => {
+                        if(err)
+                            throw err;
+                    });
+                }
+                
+                const id = req.params.id;
+
+                User.findById(id)
+                .then(user =>{
+                    user.file= `/uploads/${fileName}`
+                    // // console.log(profile);
+                    // profile.accountName = req.body.accountName;
+                    // profile.accountNumber = req.body.accountNumber;
+                    // profile.bank = req.body.bank;
+                    // profile.user = req.body.user;
+                    
+        
+        
+                    user.save().then(updateProfilePicture => {
+                        console.log('profile picture save successfully')
+                        req.flash('success-message', 'profile picture save successfully');
+                        res.redirect('/profile')
+                    });
+        
+                });
+        
+
+        // const newUser = new User ({
+        //     file: `/uploads/${fileName}`
+        // });
+        // await newUser.save().then(user =>{
+        //     console.log('profile picture save successfully')
+        //     req.flash('success-message', 'profile picture save successfully');
+        //     res.redirect('/profile')
+        // })
+    },
+
+    profilePost: async (req, res) =>{
+       
+        
+               const  newProfile = new Profile({
+                    accountName: req.body.accountName,
+                    accountNumber: req.body.accountNumber,
+                    bank: req.body.bank,
+                    user: req.body.user,
+                   
+                });
+        
+                
+        
+        
+               await newProfile.save().then(profile => {
+                    console.log('PROFILE',profile);
+                    req.flash('success-message', 'Profile created successfully.');
+                    res.redirect('/profile');
+                });
+        
+    },
+
+    editprofileGet: (req, res) =>{
+
+        const id = req.params.id;
+        console.log(id);
+
+        Profile.findById(id)
+        .then(profile =>{
+
+                res.render('default/editprofile', {profile:profile});
+            });
+
+        // Profile.find({user: req.user}, function (err, profiles){
+        //     if(err){
+        //         return req.flash('error', 'problem finding this page');
+        //     }
+            
+
+        // res.render('default/editProfile', {profiles:profiles});
+           
+        // });
+    },
+
+
+    editprofilePut: async (req, res) =>{
+        
+
+              
+        // let user = req.user
+        // console.log(user)
+
+        const id = req.params.id;
+        // console.log(id)
+
+        Profile.findById(id)
+        .then(profile =>{
+            // console.log(profile);
+            profile.accountName = req.body.accountName;
+            profile.accountNumber = req.body.accountNumber;
+            profile.bank = req.body.bank;
+            profile.user = req.body.user;
+            
+
+
+            profile.save().then(updateProfile => {
+                req.flash('success-message', `The Profile ${updateProfile.accountName} has been updated.`);
+                res.redirect('/profile');
+
+            });
+
+        });
+
+
+
+    },
+
+
+
+
+
+
 
     logoutGet: (req, res) =>{
         req.logout();
@@ -318,34 +421,6 @@ module.exports = {
 
         const commentsAllowed = req.body.allowComments ? true : false;
 
-
-        //==================== start of cloudinary=========================================
-
-
-        // cloudinary.uploader.upload(req.file.path, function(result) {
-        //     // add cloudinary url for the image to the campground object under image property
-        //     req.body.campground.image = result.secure_url;
-        //     // add author to campground
-        //     req.body.campground.author = {
-        //       id: req.user._id,
-        //       username: req.user.username
-        //     }
-        //     Campground.create(req.body.campground, function(err, campground) {
-        //       if (err) {
-        //         req.flash('error', err.message);
-        //         return res.redirect('back');
-        //       }
-        //       res.redirect('/campgrounds/' + campground.id);
-        //     });
-        //   });
-
-
-        //==================== end of cloudinary============================
-
-
-
-
-     
         // check for new file
         let fileName = '';
 
@@ -360,9 +435,6 @@ module.exports = {
             });
         }
         
-    
-
-    //    =================================================== PREVIOUS FUNTIONAL CODE ====================================================
 
        const  newPost = new Post({
             title: req.body.title,
@@ -418,8 +490,11 @@ module.exports = {
         
     },
 
+    
+
     editPostSubmit2: (req, res) =>{
         const commentsAllowed = req.body.allowComments ? true : false;
+        
 
 
         const id = req.params.id;
@@ -444,6 +519,39 @@ module.exports = {
         });
     
     },
+
+  
+
+
+//     editProfile: (req, res) =>{
+        
+// let user = req.user
+// console.log(user)
+
+//         const id = req.params.id;
+//         // console.log(id)
+
+//         Profile.findById(id)
+//         .then(profile =>{
+//             console.log(profile);
+//             profile.accountName = req.body.accountName;
+//             profile.accountNumber = req.body.accountNumber;
+//             profile.bank = req.body.bank;
+//             profile.user = req.body.user;
+            
+
+
+//             profile.save().then(updateProfile => {
+//                 req.flash('success-message', `The Profile ${updateProfile.accountName} has been updated.`);
+//                 res.redirect('/default/profile');
+
+//             });
+
+//         });
+    
+//     },
+
+
 
     deletePost: (req, res) => {
 

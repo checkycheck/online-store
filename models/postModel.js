@@ -28,8 +28,11 @@ const PostSchema = new Schema({
     },
 
     // user: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'user'
+    //     type[{
+    //         type: Schema.Types.ObjectId,
+    //         ref: ''
+    //     }]
+       
     // },
 
     user: {

@@ -5,6 +5,7 @@ const User = require('../models/UserModel').User;
 const Category = require('../models/CategoryModel').Category;
 const {isEmpty} = require('../config/customFunctions');
 const { Pay } = require('../models/pay');
+const Approve = require('../models/approve').Approve
 
 
 //  function isUserAuthenticatedAmin (req, res, next){
@@ -89,6 +90,52 @@ module.exports = {
         });
  
         
+    },
+    approve: async(req, res) => {
+        const approves = await Approve.find().sort({_id:-1});
+        res.render('admin/posts/approve', {approves:approves})
+    },
+
+    
+    approvePosts:  async (req, res) =>{
+
+        const commentsAllowed = req.body.allowComments ? true : false;
+
+        // check for new file
+        let fileName = '';
+
+        if(!isEmpty(req.files)){
+            let file = req.files.uploadedFile;
+            filename = file.name;
+            let uploadDir = './public/uploads/';
+
+            file.mv(uploadDir+filename, (err) => {
+                if(err)
+                    throw err;
+            });
+        }
+        
+
+       const  newApprove = new Approve({
+            title: req.body.title,
+            description: req.body.description,
+            file: req.body.file,
+            price:req.body.price,
+            user: req.body.user,
+            allowComments: commentsAllowed,
+            category: req.body.category
+           
+        });
+
+        
+
+
+       await newApprove.save().then(approve => {
+            console.log('approve',approve);
+            req.flash('success-message', 'approved  successfully.');
+            res.redirect('/admin/posts/approve');
+        });
+    
     },
 
     editPost: (req, res) => {

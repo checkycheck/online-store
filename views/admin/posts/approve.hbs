@@ -1,0 +1,44 @@
+<div class="continer">
+    <div class="alert alert-secondty text-center">
+        <h1>ALL PRODUCTS</h1>
+    </div>
+
+    <table class="table table-bordered">
+        <thead class="bg-dark">
+           <tr class="text-white text-center">
+               {{!-- <th>Id</th> --}}
+               <th>title</th>
+               <th>description</th>
+               <th>status</th>
+               <th>image</th>
+               <th>comments Allowed</th>
+               <th>category</th>
+               <th>Actions</th>
+           </tr>
+        </thead>
+        <tbody class="text-center ">
+            {{#each approves}}
+            <tr>
+                {{!-- <td>{{_id}}</td> --}}
+                <td>{{title}}</td>
+                <td>{{description}}</td>
+                <td>{{status}}</td>
+                <td>{{file}}</td>
+                <td>{{allowComments}}</td>
+                <td>{{category.title}}</td>
+                <td class="d-flex">
+                    {{!-- <a href="/admin/posts/edit/{{_id}}" class="btn btn-sm btn-warning mr-2">Edit post</a> --}}
+
+                     <form action="/admin/posts/delete/{{id}}?newMethod=DELETE" method="post">
+                        <button class="btn btn-sm btn-danger" type="submit">Delete Post</button>
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+</div>
+
+
+
